@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>
+
+        function cantidad_caracteres(palabra){
+            if(typeof palabra === 'string'){
+                return palabra.length;
+            }else{
+                return "Error, no ingreso una cadenad de caracteres"
+            }
+        }
+
+        function recortar_caracteres(palabra, corte){
+            if(typeof palabra === 'string' && typeof corte === 'number'){
+                return palabra.substring(0, corte);
+            }else{
+                return "Error, no ingreso una cadenad de caracteres o no ingresó un número de corte";
+            }
+        }
+
+        function string_to_array(palabra, corte){
+            if(typeof palabra === 'string' && typeof corte === 'string'){
+                return palabra.split(corte);
+            }else{
+                return "Error, no ingreso una cadenad de caracteres o no ingresó un caracter de corte";
+            }
+        }
+
+        function repeat_text(palabra, corte){
+            if(typeof palabra === 'string' && typeof corte === 'number' && corte > 0){
+                palabra += " ";
+                return palabra.repeat(corte);
+            }else{
+                return "Error, no ingreso una cadenad de caracteres o no ingresó un número de corte";
+            }
+        }
+
+        function invert_caracters(palabra){
+            if(typeof palabra === 'string'){
+                palabra = palabra.split(""); 
+                palabra = palabra.reverse();
+                palabra = palabra.join(""); 
+                return palabra;
+            }else{
+                return "Error, no ingreso una cadenad de caracteres o no ingresó un número de corte";
+            }
+        }
+
+        function words_count(frase, palabra){                        
+            palabras = frase.split(" ");             
+            let contador = 0;
+            for (const pala of palabras) {
+                if(palabra == pala){
+                    contador++; 
+                } 
+            }
+                return contador;            
+        }
+
+        function palindromo(palabra){                        
+            let reves = invert_caracters(palabra);
+            let retorno = false ;
+            palabra === reves  ?  retorno = true : retorno = false;      
+            return retorno;                 
+        }
+
+        function reemplazo(frase, patron){              
+            patron = new RegExp(patron, "g");                                    
+            return frase.replace(patron, '');                 
+        }
+
+        function aleatorio501600(){
+            return Math.trunc(Math.random() * (600 - 501) + 501);
+        }
+
+        function capicua(numero){
+            if (typeof numero === 'number'){
+                numero = numero.toString();
+                if (palindromo(numero) == true){
+                    return true;
+                }else{
+                    return false;
+                }
+            }            
+        }
+
+        function factorial(numero){
+            let suma = 1;
+            if (typeof numero === 'number'){
+                for(let contador = 1; contador <= numero; contador++){
+                    suma = suma * contador;                    
+                }
+                return suma;
+            }else{
+                return "Error, debe ingresdar un número";
+            }
+        } 
+
+        let frase = "sapo que va al monte que";
+        let palabra = "que";
+        let corte = 3;
+        console.log(cantidad_caracteres(frase));
+        console.log(recortar_caracteres(frase, corte));
+        console.log(string_to_array(frase, " "));
+        console.log(repeat_text(frase, 3));
+        console.log(invert_caracters(frase));
+        console.log(words_count(frase, palabra));
+        console.log(palindromo("neuquen"));
+        console.log(reemplazo(frase, "que"));
+        console.log(aleatorio501600());
+        console.log(capicua(1010101));
+        console.log(factorial(5));
+    </script>
+    <title>HOLA, AHI VAN LOS EJERCICIOS RESUELTOS</title>
+</head>
+<body>
+    <h3>PAGINA CON LOS EJERCICIOS DE JON MIRCHA - GRACIAS POR LA BUENA ONDA!</h3>
+</body>
+</html>
